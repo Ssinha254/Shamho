@@ -47,7 +47,9 @@ export const Sidebar: React.FC = () => {
 
   const visibleNavItems =
     user?.role === "TECHNICIAN"
-      ? navItems.filter((item) => item.path === "/locations")
+      ? navItems.filter(
+          (item) => item.path === "/locations" || item.path === "/ai-records",
+        )
       : user?.role === "ADMIN"
         ? navItems
         : [];

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
+import type { User as SupabaseAuthUser, Session } from "@supabase/supabase-js";
 import type { User, AuthContextType, UserRole } from "../types";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -25,17 +26,18 @@ const normalizeRole = (rawRole: unknown): UserRole => {
   return "ADMIN";
 };
 
-const resolveUserRole = (user: {
-  app_metadata?: { role?: unknown };
-  user_metadata?: { role?: unknown };
-}): UserRole => {
+type RoleAwareAuthUser = Pick<
+  SupabaseAuthUser,
+  "app_metadata" | "user_metadata" | "email" | "id" | "created_at"
+>;
+
+const resolveUserRole = (user: RoleAwareAuthUser): UserRole => {
   return normalizeRole(user.app_metadata?.role ?? user.user_metadata?.role);
 };
 
-const resolveUserName = (user: {
-  email?: string | null;
-  user_metadata?: { full_name?: unknown; name?: unknown };
-}) => {
+const resolveUserName = (
+  user: Pick<Session["user"], "email" | "user_metadata">,
+) => {
   const rawName = user.user_metadata?.full_name ?? user.user_metadata?.name;
   if (typeof rawName === "string" && rawName.trim()) {
     return rawName.trim();
@@ -79,7 +81,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
         const role = resolveUserRole(session.user);
 
