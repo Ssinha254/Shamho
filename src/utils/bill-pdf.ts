@@ -23,7 +23,8 @@ type BillPdfData = {
 const money = (value: number) => `₹${value.toLocaleString("en-IN")}`;
 
 const padRight = (value: string, width: number) => {
-  const text = value.length > width ? value.slice(0, Math.max(width - 1, 0)) + "…" : value;
+  const text =
+    value.length > width ? value.slice(0, Math.max(width - 1, 0)) + "…" : value;
   return text.padEnd(width, " ");
 };
 
@@ -137,7 +138,9 @@ export const downloadBillPdf = (bill: BillPdfData) => {
       { value: "Total", width: 12 },
     ]),
   );
-  pdfLines.push("--------------------------------------------------------------------------");
+  pdfLines.push(
+    "--------------------------------------------------------------------------",
+  );
   bill.items.forEach((item, index) => {
     pdfLines.push(
       buildRow([

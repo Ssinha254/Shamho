@@ -174,14 +174,8 @@ export const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                   }
                 />
-                <Route
-                  path="/"
-                  element={<RoleHomeRedirect />}
-                />
-                <Route
-                  path="*"
-                  element={<RoleHomeRedirect />}
-                />
+                <Route path="/" element={<RoleHomeRedirect />} />
+                <Route path="*" element={<RoleHomeRedirect />} />
               </Routes>
             </AppLayout>
           </ProtectedRoute>

@@ -59,7 +59,10 @@ export const DashboardPage: React.FC = () => {
     membersLoading || inventoryLoading || transactionsLoading || aiLoading;
 
   const hasDashboardData =
-    members.length > 0 || inventory.length > 0 || transactions.length > 0 || aiRecords.length > 0;
+    members.length > 0 ||
+    inventory.length > 0 ||
+    transactions.length > 0 ||
+    aiRecords.length > 0;
 
   const metrics = useMemo(() => {
     const todayKey = getDateKey(new Date().toISOString());
@@ -419,22 +422,22 @@ export const DashboardPage: React.FC = () => {
           ) : (
             <div className="space-y-3">
               {recentTransactions.map((transaction) => (
-              <div
-                key={transaction.id}
-                className="flex items-center justify-between rounded-2xl bg-background px-4 py-3"
-              >
-                <div>
-                  <p className="text-sm font-medium text-text">
-                    Bill {transaction.bill_no}
-                  </p>
-                  <p className="text-xs text-text-secondary">
-                    {transaction.member_name}
+                <div
+                  key={transaction.id}
+                  className="flex items-center justify-between rounded-2xl bg-background px-4 py-3"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-text">
+                      Bill {transaction.bill_no}
+                    </p>
+                    <p className="text-xs text-text-secondary">
+                      {transaction.member_name}
+                    </p>
+                  </div>
+                  <p className="text-sm font-semibold text-text">
+                    {formatCurrency(transaction.total)}
                   </p>
                 </div>
-                <p className="text-sm font-semibold text-text">
-                  {formatCurrency(transaction.total)}
-                </p>
-              </div>
               ))}
             </div>
           )}
@@ -452,27 +455,27 @@ export const DashboardPage: React.FC = () => {
           ) : (
             <div className="space-y-3">
               {lowStockItems.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between rounded-2xl bg-background px-4 py-3"
-              >
-                <div>
-                  <p className="text-sm font-medium text-text">
-                    {item.product_name}
-                  </p>
-                  <div className="w-32 h-2 bg-border rounded-full mt-1 overflow-hidden">
-                    <div
-                      className="h-full bg-warning"
-                      style={{
-                        width: `${Math.min((item.quantity / 20) * 100, 100)}%`,
-                      }}
-                    ></div>
+                <div
+                  key={item.id}
+                  className="flex items-center justify-between rounded-2xl bg-background px-4 py-3"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-text">
+                      {item.product_name}
+                    </p>
+                    <div className="w-32 h-2 bg-border rounded-full mt-1 overflow-hidden">
+                      <div
+                        className="h-full bg-warning"
+                        style={{
+                          width: `${Math.min((item.quantity / 20) * 100, 100)}%`,
+                        }}
+                      ></div>
+                    </div>
                   </div>
+                  <p className="text-xs font-semibold text-text-secondary">
+                    {item.quantity}
+                  </p>
                 </div>
-                <p className="text-xs font-semibold text-text-secondary">
-                  {item.quantity}
-                </p>
-              </div>
               ))}
             </div>
           )}
@@ -490,22 +493,22 @@ export const DashboardPage: React.FC = () => {
           ) : (
             <div className="space-y-3">
               {recentAIEntries.map((record) => (
-              <div
-                key={record.id}
-                className="flex items-start justify-between rounded-2xl bg-background px-4 py-3"
-              >
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-text">
-                    {record.member_name} - {record.animal_id}
-                  </p>
-                  <p className="text-xs text-text-secondary">
-                    Batch: {record.semen_batch_code}
-                  </p>
+                <div
+                  key={record.id}
+                  className="flex items-start justify-between rounded-2xl bg-background px-4 py-3"
+                >
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-text">
+                      {record.member_name} - {record.animal_id}
+                    </p>
+                    <p className="text-xs text-text-secondary">
+                      Batch: {record.semen_batch_code}
+                    </p>
+                  </div>
+                  <span className="px-2 py-1 bg-primary-light text-primary text-xs rounded-lg font-medium">
+                    {record.pregnancy_status}
+                  </span>
                 </div>
-                <span className="px-2 py-1 bg-primary-light text-primary text-xs rounded-lg font-medium">
-                  {record.pregnancy_status}
-                </span>
-              </div>
               ))}
             </div>
           )}
