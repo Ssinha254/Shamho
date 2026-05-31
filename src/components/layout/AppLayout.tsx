@@ -24,7 +24,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
       <div className="flex min-h-screen flex-1 flex-col lg:pl-64">
         <SearchProvider>
-          <div className="sticky top-0 z-30 border-b border-emerald-900/30 bg-emerald-900 text-white shadow-sm backdrop-blur-xl">
+          <div className="sticky top-0 z-30 border-b border-border bg-white text-text shadow-sm backdrop-blur-xl">
             <Topbar onMenuClick={() => setMobileMenuOpen(true)} />
           </div>
           <main className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 lg:px-8">

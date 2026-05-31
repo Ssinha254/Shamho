@@ -194,42 +194,42 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="overflow-hidden rounded-[28px] border border-white/60 bg-gradient-to-br from-primary-dark via-primary to-emerald-700 p-6 text-white shadow-xl">
+      <div className="overflow-hidden rounded-[28px] border border-border bg-card p-6 text-text shadow-xl">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-3">
-            <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+            <p className="text-xs uppercase tracking-[0.35em] text-text-secondary">
               Overview
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Dashboard
             </h1>
-            <p className="text-sm text-white/80 sm:text-base">
+            <p className="text-sm text-text-secondary sm:text-base">
               Welcome back. Here’s a clear view of sales, inventory, and AI
               activity across the business.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-              <p className="text-xs text-white/60">Today Sales</p>
+            <div className="rounded-2xl border border-border bg-background px-4 py-3">
+              <p className="text-xs text-text-secondary">Today Sales</p>
               <p className="mt-1 text-lg font-semibold">
                 {formatCurrency(metrics.todaySales)}
               </p>
             </div>
-            <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-              <p className="text-xs text-white/60">Outstanding</p>
+            <div className="rounded-2xl border border-border bg-background px-4 py-3">
+              <p className="text-xs text-text-secondary">Outstanding</p>
               <p className="mt-1 text-lg font-semibold">
                 {formatCurrency(metrics.outstandingCredit)}
               </p>
             </div>
-            <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-              <p className="text-xs text-white/60">AI Done</p>
+            <div className="rounded-2xl border border-border bg-background px-4 py-3">
+              <p className="text-xs text-text-secondary">AI Done</p>
               <p className="mt-1 text-lg font-semibold">
                 {metrics.aiDoneToday}
               </p>
             </div>
-            <div className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur">
-              <p className="text-xs text-white/60">Alerts</p>
+            <div className="rounded-2xl border border-border bg-background px-4 py-3">
+              <p className="text-xs text-text-secondary">Alerts</p>
               <p className="mt-1 text-lg font-semibold">
                 {metrics.lowStockAlerts + metrics.expiringBatches}
               </p>

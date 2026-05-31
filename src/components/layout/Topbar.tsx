@@ -23,43 +23,43 @@ export const Topbar: React.FC<TopbarProps> = ({ onMenuClick }) => {
   };
 
   return (
-    <div className="flex h-16 items-center justify-between px-4 sm:px-6 text-white">
+    <div className="flex h-16 items-center justify-between px-4 sm:px-6 text-text">
       <div className="flex flex-1 items-center gap-4">
         <button
           onClick={onMenuClick}
-          className="rounded-lg p-2 transition-colors hover:bg-white/10 lg:hidden"
+          className="rounded-lg p-2 transition-colors hover:bg-black/5 lg:hidden"
         >
-          <Menu size={20} className="text-white" />
+          <Menu size={20} className="text-text" />
         </button>
       </div>
 
       <div className="flex items-center gap-6">
         <button
-          className="relative rounded-lg p-2 transition-colors hover:bg-white/10"
+          className="relative rounded-lg p-2 transition-colors hover:bg-black/5"
           onClick={handleNotifications}
         >
-          <Bell size={20} className="text-white" />
+          <Bell size={20} className="text-text" />
           <span className="absolute right-1 top-1 h-2 w-2 bg-danger"></span>
         </button>
 
         <div className="relative">
           <button
             onClick={() => setShowUserMenu(!showUserMenu)}
-            className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-3 py-2 shadow-sm transition-colors hover:bg-white/15"
+            className="flex items-center gap-3 rounded-xl border border-border bg-white px-3 py-2 shadow-sm transition-colors hover:bg-background"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white">
-              <User size={16} className="text-white" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-light text-primary">
+              <User size={16} className="text-primary" />
             </div>
             <div className="hidden text-left sm:block">
-              <p className="max-w-40 truncate text-sm font-medium text-white">
+              <p className="max-w-40 truncate text-sm font-medium text-text">
                 {user?.email}
               </p>
-              <p className="text-xs text-white/80">{user?.role}</p>
+              <p className="text-xs text-text-secondary">{user?.role}</p>
             </div>
           </button>
 
           {showUserMenu && (
-            <div className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-white/20 bg-white shadow-xl">
+            <div className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-border bg-white shadow-xl">
               <button
                 onClick={handleLogout}
                 className="flex w-full items-center gap-3 px-4 py-3 text-left text-danger hover:bg-background"

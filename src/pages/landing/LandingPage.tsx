@@ -50,9 +50,9 @@ export const LandingPage: React.FC = () => {
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-6 pb-16 pt-12 text-center lg:px-8 lg:py-16">
-        <section className="flex w-full max-w-2xl flex-col items-center gap-6">
-          <div className="space-y-4">
+      <main className="mx-auto flex w-full max-w-[96rem] flex-col items-center gap-6 px-4 pb-10 pt-8 text-center sm:px-6 lg:px-8 lg:py-10">
+        <section className="flex w-full max-w-2xl flex-col items-center gap-4">
+          <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-700">
               Development in progress
             </p>
@@ -72,9 +72,9 @@ export const LandingPage: React.FC = () => {
           </Link>
         </section>
 
-        <section className="relative w-full max-w-4xl">
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-black/5">
-            <div className="aspect-[4/5] w-full overflow-hidden sm:aspect-[16/10] lg:aspect-[4/5]">
+        <section className="relative w-full max-w-[96rem]">
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/60 bg-white p-2 shadow-2xl shadow-slate-900/10 ring-1 ring-black/5 sm:p-3 lg:p-4">
+            <div className="flex h-[56vh] w-full items-center justify-center overflow-hidden rounded-[1.25rem] bg-white sm:h-[64vh] lg:h-[72vh]">
               <img
                 src={heroImage}
                 alt="SHAMHO banner"
